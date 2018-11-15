@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div>
+		<span v-for='n of 10'>{{ n }}</span>
+	</div>
+	<div id="demo2">
+		<img title="{{name}}" alt="{{name}}" v-attr="src: url">
+		<input v-model="name">
+		<input v-model="url">
+	</div>
+	<script>
+		var vm = new Vue({
+			    el: '#demo2',
+			    data: {
+			      name: 'taobao',
+			      url: 'https://www.taobao.com/favicon.ico'
+			    }
+			  })
+	</script>
+</body>
+</html>
