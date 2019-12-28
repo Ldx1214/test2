@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--text-->
+    <input type="text" v-model="message">
+    <span>你输入的是：{{message}}</span>
+    <br>
+    <!--radio-->
+    <label><input type="radio" value="male" v-model="gender">男</label>
+    <label><input type="radio" value="female" v-model="gender">女</label>
+    <p>{{message}}</p>
+    <!--checkbox-->
+    <input type="checkbox" v-model="checked">
+    <span>checked:{{checked}}</span>
+    <br>
+    <!--多个勾选框-->
+    <label><input type="checkbox" value="1" v-model="multiChecked">1</label>
+    <label><input type="checkbox" value="2" v-model="multiChecked">2</label>
+    <label><input type="checkbox" value="3" v-model="multiChecked">3</label>
+    <p>多个勾选框是:{{multiChecked.join('|')}}</p>
+    <!--select-->
+    <select v-model="selected">
+        <option selected>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>您选择的是:{{selected}}</span>
+    <br>
+    <br>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message:'',
+            gender:'',
+            checked:'',
+            multiChecked:[],
+            selected:'',
+            multiSelected:[],
+            a:'checked',
+            b:'checked',
+        }
+    });
+</script>
+</body>
+</html>

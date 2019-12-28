@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="test">
+  <button @click="destroyVue">destory vue</button>
+  <p v-if="isShow">你好</p>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#test',
+    data: {
+      isShow: true
+    },
+
+    beforeCreate() {
+      console.log('beforeCreate()')
+    },
+
+    created() {
+      console.log('created()')
+    },
+
+    beforeMount() {
+      console.log('beforeMount()')
+    },
+
+    mounted () {
+      console.log('mounted()')
+      this.intervalId = setInterval(() => {
+        console.log('-----')
+        this.isShow = !this.isShow
+      }, 1000)
+    },
+
+
+    beforeUpdate() {
+      console.log('beforeUpdate()')
+    },
+    updated () {
+      console.log('updated()')
+    },
+
+
+    beforeDestroy() {
+      console.log('beforeDestroy()')
+      clearInterval(this.intervalId)
+    },
+
+    destroyed() {
+      console.log('destroyed()')
+    },
+
+    methods: {
+      destroyVue () {
+        this.$destroy()
+      }
+    }
+  })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="demo">{{ fullName }}</div>
+    <script>
+        var vm = new Vue({
+        el: '#demo',
+        data: {
+            firstName: 'lidongxu1',
+            lastName: 'lidongxu2',
+            fullName: 'lidongxu3'
+        },
+        watch: {
+            firstName: function (val) {
+            this.fullName = val + ' ' + this.lastName
+            },
+            lastName: function (val) {
+            this.fullName = this.firstName + ' ' + val
+            }
+        }
+        })
+    </script>
+</body>
+</html>
